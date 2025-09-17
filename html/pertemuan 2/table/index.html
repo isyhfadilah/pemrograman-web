@@ -24,6 +24,22 @@
         #ubah-warna {
             color: blue;
         }
+
+        form {
+            margin-top: 10px;
+            padding: 15px;
+            border: 3px solid black;
+            width: 300px;
+            background-color: whitesmoke;
+            box-shadow: 5px #888888;
+            border-radius: 5px;
+        }
+
+        .form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -86,6 +102,29 @@
             </ul>
         </nav>
     </header>
+
+    <div class="form">
+        <form action="">
+            <label for="">Username: </label>
+            <input type="text" id="username" name="username" placeholder="Masukkan username">
+            <br>
+
+            <label for="">Password: </label>
+            <input type="password" id="password" name="password" placeholder="Masukkan password">
+            <br>
+
+            <label for="">Hobi</label>
+            <select name="pilihan" id="">
+                <option value="">Berenang</option>
+                <option value="">Ngoding</option>
+                <option value="">Nyanyi</option>
+            </select>
+
+            <br>
+            <button type="submit">Kirim</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
 </body>
 
 </html>
