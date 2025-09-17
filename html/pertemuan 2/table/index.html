@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+
+    <style>
+        .container {
+            width: 100;
+            margin-top: 100px;
+            padding-top: 50px;
+            padding: 15px;
+            border: 3px solid black;
+        }
+
+        .header,
+        .footer {
+            background-color: whitesmoke;
+            padding: 10px;
+        }
+
+        #ubah-warna {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Data Mahasiswa</p>
+
+    <table id="tabel1" border="1" cellpadding="3" cellspacing="0">
+        <tr>
+            <th>No</th>
+            <th>Foto Profil
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Jurusan</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><img src="images/profil-empat.png" alt="" width="100"></td>
+            <td>Alice</td>
+            <td>123456</td>
+            <td>Informatika</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><img src="images/profil-dua.png" alt="" width="100"></td>
+            <td>Bob</td>
+            <td>654321</td>
+            <td>Sistem Informasi</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><img src="images/profil-tiga.png" alt="" width="100"></td>
+            <td>Charlie</td>
+            <td>112233</td>
+            <td>Teknik Komputer</td>
+        </tr>
+    </table>
+
+    <div class="container">
+        <div class="header">
+            <h1>Judul Halaman</h1>
+        </div>
+
+        <div class="content">
+            <p>Ini adalah halaman paragraf, contoh saja haha</p>
+        </div>
+
+        <div class="footer">
+            <p>Ini adalah halaman footer</p>
+        </div>
+    </div>
+
+    <p>Lorem ipsum dolor sit amet consectetur, <span id="ubah-warna">adipisicing elit</span> . Fugiat, sint.</p>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Produk</a></li>
+                <li><a href="#">Profil</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+</html>
