@@ -1,0 +1,44 @@
+header {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(30, 190, 43);
+}
+
+main {
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+footer {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(30, 190, 43);
+}
+
+footer p {
+    padding-top: 25px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.kotak_produk {
+    width: 700px;
+    background-color: chocolate;
+}
+
+.kotak_produk .konten {
+    width: 200px;
+    background-color: royalblue;
+    border: solid black 5px;
+    display: inline-block;
+    font-size: 0.7em;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 10px;
+}
+
+.kotak_produk .konten img {
+    display: block;
+    margin: auto;
+}
