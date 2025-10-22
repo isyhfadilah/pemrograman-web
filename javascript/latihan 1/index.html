@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <h2>Halo selamat datang di JS!</h2>
+    <p id="konten">Ini adalah isi konten sebelum diklik</p>
+
+    <button type="submit"
+        onclick='document.getElementById("konten").innerHTML = "Ini adalah isi konten setelah diklik."'>Tekan</button>
+
+    <hr>
+
+    <h2>Menyalakan TV</h2>
+
+    <button type="button"
+        onclick="document.getElementById('myImage').src='https://www.ytechb.com/wp-content/uploads/2022/09/fix-samsung-tv-turning-on-and-off-itself.webp'">Nyalakan
+        TV</button>
+
+    <img id="myImage" src="https://www.freeiconspng.com/uploads/tv-off-png-2.png" style="width:500px" alt="TV Mati">
+
+    <button type="button"
+        onclick="document.getElementById('myImage').src='https://elements-resized.envatousercontent.com/elements-video-cover-images/files/0051a28f-1b3d-4d64-8b93-760758194030/inline_image_preview.jpg?w=500&cf_fit=cover&q=85&format=auto&s=b6817ec5c91f09bf04af6587c8106134f421832d215973180378c0964c8f9fdd'">Matikan
+        TV</button>
+
+    <hr>
+
+    <p id="greeting"></p>
+
+    <!-- <script>
+        document.write("Ini adalah contoh penggunaan document.write.");
+    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
