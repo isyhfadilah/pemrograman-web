@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="lampu" class="lampu"></div>
+    
+    <script>
+        const lampu = document.getElementById("lampu");
+
+        setInterval(function() {
+            if(lampu.classList.contains("nyala")) {
+                lampu.classList.remove("nyala");
+                console.log("Lampu mati");
+            } else {
+                lampu.classList.add("nyala");
+                console.log("Lampu nyala");
+            }
+        }, 1000)
+    </script>
+
+</body>
+</html>

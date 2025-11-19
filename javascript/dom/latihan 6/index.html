@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On click</title>
+</head>
+<body onload="checkCookies()" onunload="pesanKeluar()">
+
+    <h2>Event Handler On Click</h2>
+    <button onclick="tampilkanPesan()">Tekan</button>
+    
+    <script>
+         function tampilkanPesan() {
+            alert("Tombol telah ditekan!");
+         }
+
+         function checkCookies() {
+            alert("Memeriksa cookies..");
+         }
+
+         function pesanKeluar() {
+            alert("Anda akan meninggalkan halaman ini..");
+         }
+    </script>
+</body>
+</html>

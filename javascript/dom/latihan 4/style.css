@@ -1,0 +1,48 @@
+ body {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     height: 100vh;
+ }
+
+ .lampu {
+     width: 100px;
+     height: 150px;
+     background-color: grey;
+     margin-top: 20px;
+     border-radius: 20px;
+     transition: 0.5s;
+ }
+
+ .nyala {
+     background-color: yellow;
+     box-shadow: 0 0 20px 5px yellow;
+ }
+
+ .replace {
+    background-color: brown;
+    box-shadow: 0 0 20px 5px brown;
+ }
+
+ button {
+     margin-top: 34px;
+     cursor: pointer;
+     border: none;
+     background-color: teal;
+     color: white;
+     padding: 10px 20px;
+     border-radius: 5px;
+ }
+
+ button#tombolMati {
+     font-weight: bold;
+     background-color: white;
+     color: teal;
+     border: teal 2px solid;
+ }
+
+ .btn {
+     display: flex;
+     gap: 10px;
+ }
