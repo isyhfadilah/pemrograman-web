@@ -25,13 +25,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">U</span>
+                    <span class="text-white font-bold text-lg">N</span>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold text-gray-900 tracking-tight">PT. Unicorn Bercahaya</h1>
+                    <h1 class="text-xl font-bold text-gray-900 tracking-tight">PT. Nusa Technology</h1>
                     <p class="text-xs text-gray-500 font-medium">Sistem Manajemen Karyawan</p>
                 </div>
             </div>
+            <a href="index.php" class="text-sm font-medium text-indigo-600 hover:text-indigo-500 transition">
+                &larr; Kembali
+            </a>
         </div>
     </header>
 
