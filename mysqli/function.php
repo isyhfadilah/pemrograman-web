@@ -30,5 +30,66 @@ function ambilKaryawan($divisi) {
     return $data;
 }
 
+function tambahKaryawan($nama, $jabatan, $gaji, $status, $divisi, $gambar) {
+    $conn = koneksiDB();
 
+    $nama = htmlspecialchars($nama);
+    $jabatan = htmlspecialchars($jabatan);
+    $gaji = htmlspecialchars($gaji);
+    $status = htmlspecialchars($status);
+    $divisi = htmlspecialchars($divisi);
+
+    $gambar = uploadGambar();
+    if(!$gambar) {
+        return false;
+    }
+    
+    $query = "INSERT INTO karyawan (nama, jabatan, gaji, status, divisi, gambar) 
+              VALUES ('$nama', '$jabatan', '$gaji', '$status', '$divisi', '$gambar')";
+
+    if(mysqli_query($conn, $query)) {
+        mysqli_close($conn);
+        return true;
+    } else {
+        mysqli_close($conn);
+        return false;
+    }
+}
+
+function uploadGambar() {
+    $namaFile = $_FILES['gambar']['name'];
+    $ukuranFile = $_FILES['gambar']['size'];
+    $error = $_FILES['gambar']['error'];
+    $tmpName = $_FILES['gambar']['tmp_name'];
+
+   if($error === 4) {
+    echo "<script>
+            alert('Pilih gambar terlebih dahulu!');
+          </script>";
+    return false;
+   }
+
+   $eksistensiGambarValid = ['jpg', 'jpeg', 'png'];
+   $eksistensiGambar = explode('.', $namaFile);
+   $eksistensiGambar = strtolower(end($eksistensiGambar));
+
+   if(!in_array($eksistensiGambar, $eksistensiGambarValid)) {
+    echo "<script>
+            alert('Yang Anda upload bukan gambar!');
+          </script>";
+    return false;
+   }   
+
+   if($ukuranFile > 2000000) {
+    echo "<script>
+            alert('Ukuran gambar terlalu besar! Maksimal 2MB.');
+          </script>";
+    return false;
+   }
+
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.' . $eksistensiGambar;
+    move_uploaded_file($tmpName, 'gambar/' . $namaFileBaru);
+    return $namaFileBaru;
+}
 ?>
