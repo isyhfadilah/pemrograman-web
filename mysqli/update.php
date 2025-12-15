@@ -65,11 +65,17 @@
             
             <div class="bg-indigo-600 px-8 py-6">
                 <h2 class="text-2xl font-bold text-white">Update Data Karyawan</h2>
-                <p class="text-indigo-100 text-sm mt-1">Lengkapi formulir di bawah ini untuk menambahkan data baru.</p>
+                <p class="text-indigo-100 text-sm mt-1">Lengkapi formulir di bawah ini untuk mengubah data baru.</p>
             </div>
 
             <div class="p-8">
                 <form action="" method="POST" enctype="multipart/form-data" class="space-y-5">
+
+                 <?php if (!empty($karyawan['gambar'])) : ?>
+                    <div class="mb-3 flex justify-center">
+                        <img src="gambar/<?= htmlspecialchars($karyawan['gambar']); ?>" alt="Foto Profil" class="h-24 w-24 object-cover rounded-full border border-gray-300">
+                    </div>
+                <?php endif; ?>
                     
                     <div>
                         <label for="nama" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
@@ -126,11 +132,7 @@
                     <div>
                         <label for="gambar" class="block text-sm font-medium text-gray-700 mb-1">Foto Profil</label>
 
-                        <?php if (!empty($karyawan['gambar'])) : ?>
-                            <div class="my-3">
-                                <img src="gambar/<?= htmlspecialchars($karyawan['gambar']); ?>" alt="Foto Profil" class="h-24 w-24 object-cover rounded-lg border border-gray-300">
-                            </div>
-                        <?php endif; ?>
+                       
 
                         <input type="file" id="gambar" name="gambar" accept="image/*" 
                             class="block w-full text-sm text-gray-500
