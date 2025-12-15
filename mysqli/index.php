@@ -38,7 +38,6 @@
     <main class="flex-grow max-w-7xl w-full mx-auto py-10 px-4 sm:px-6 lg:px-8">
         
         <?php 
-        // Logika Pengambilan Data
         foreach($divisiList as $namaDivisi) {
             $karyawanList = array_merge($karyawanList, ambilKaryawan($namaDivisi));
         }
@@ -120,8 +119,8 @@
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3 transition">Ubah</a>
-                                <a href="#" class="text-red-600 hover:text-red-900 transition">Hapus</a>
+                                <a href="update.php?id_karyawan=<?= htmlspecialchars($karyawan['id_karyawan']); ?>" class="text-indigo-600 hover:text-indigo-900 mr-3 transition">Ubah</a>
+                                <a href="hapus.php?id_karyawan=<?= htmlspecialchars($karyawan['id_karyawan']); ?>" class="text-red-600 hover:text-red-900 transition">Hapus</a>
                             </td>
                         </tr>
                         <?php endforeach; 

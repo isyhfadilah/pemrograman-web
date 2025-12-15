@@ -30,6 +30,16 @@ function ambilKaryawan($divisi) {
     return $data;
 }
 
+function ambilKaryawanById($id) {
+    $conn = koneksiDB();
+    $query = "SELECT * FROM karyawan WHERE id_karyawan = '$id'";
+    $result = mysqli_query($conn, $query);
+
+    $data = mysqli_fetch_assoc($result);
+    mysqli_close($conn);
+    return $data;
+}
+
 function tambahKaryawan($nama, $jabatan, $gaji, $status, $divisi, $gambar) {
     $conn = koneksiDB();
 
@@ -92,4 +102,67 @@ function uploadGambar() {
     move_uploaded_file($tmpName, 'gambar/' . $namaFileBaru);
     return $namaFileBaru;
 }
+
+
+function updateKaryawan($id, $nama, $jabatan, $gaji, $status, $divisi, $gambar) {
+    $conn = koneksiDB();
+
+    $nama = htmlspecialchars($nama);
+    $jabatan = htmlspecialchars($jabatan);
+    $gaji = htmlspecialchars($gaji);
+    $status = htmlspecialchars($status);
+    $divisi = htmlspecialchars($divisi);
+
+    if($gambar['error'] === 4) {
+        $karyawanLama = ambilKaryawanById($id);
+        $namaGambar = $karyawanLama['gambar'];
+    } else {
+        $namaGambar = uploadGambar();
+        if(!$namaGambar) {
+            return false;
+        }
+
+        $karyawanLama = ambilKaryawanById($id);
+        if(file_exists('gambar/' . $karyawanLama['gambar'])) {
+            unlink('gambar/' . $karyawanLama['gambar']);
+        }
+    }
+
+    $query = "UPDATE karyawan SET 
+                nama = '$nama',
+                jabatan = '$jabatan',
+                gaji = '$gaji',
+                status = '$status',
+                divisi = '$divisi',
+                gambar = '$namaGambar'
+              WHERE id_karyawan = '$id'";
+
+    if(mysqli_query($conn, $query)) {
+        mysqli_close($conn);
+        return true;
+    } else {
+        mysqli_close($conn);
+        return false;
+    }
+}
+
+function hapusKaryawan($id) {
+    $conn = koneksiDB();
+
+    $karyawan = ambilKaryawanById($id);
+    if($karyawan && file_exists('gambar/' . $karyawan['gambar'])) {
+        unlink('gambar/' . $karyawan['gambar']);
+    }
+
+    $query = "DELETE FROM karyawan WHERE id_karyawan = '$id'";
+
+    if(mysqli_query($conn, $query)) {
+        mysqli_close($conn);
+        return true;
+    } else {
+        mysqli_close($conn);
+        return false;
+    }
+}
+
 ?>
