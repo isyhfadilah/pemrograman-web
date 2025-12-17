@@ -7,7 +7,7 @@ function koneksiDB() {
     $db = "karyawan";
     $port = 8080;
 
-    $conn = mysqli_connect($host, $user, $pass, $db, $port);
+    $conn = mysqli_connect($host, $user, $pass, $db);
 
     if(!$conn) {
         die("Koneksi gagal: " . mysqli_connect_error());
@@ -163,6 +163,37 @@ function hapusKaryawan($id) {
         mysqli_close($conn);
         return false;
     }
+}
+
+function register($data) {
+    $conn = koneksiDB();
+
+    $username = strtolower(stripslashes($data['username']));
+    $email = strtolower(stripslashes($data['email']));
+    $password = $data['password'];
+    $password_confirm = $data['confirm_password'];
+
+    if($password != $password_confirm) {
+        echo "<script>
+                alert('Konfirmasi password tidak sesuai');
+            </script>";
+        return false;
+    }
+
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username' OR email = '$email'");
+    if(mysqli_fetch_assoc($result)) {
+        echo "<script>
+                alert('Username atau Email sudah terdaftar!');
+            </script>";
+        return false;
+    }
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    $query = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$password')";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+
 }
 
 ?>
